@@ -1,0 +1,23 @@
+{% extends 'Base.html' %} 
+{% load static %}
+{% block title %}Accounts Setting{% endblock %} {% block content %}
+
+<div class="card card-body">
+    
+    <a href="{% url 'accountshome' %}">Back to Profile</a>
+    <h2>Account Settings</h2>
+    <hr>
+    <img class="profile-pic" src="{{ request.user.customer.profile_pic.url }}" alt="Not Found" >
+</div>
+
+<br>
+
+<div class="card card-body">
+    <form method="POST" action="" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <input class="btn btn-primary" type="submit" name="Update Information">
+    </form>
+</div>
+
+{% endblock %}

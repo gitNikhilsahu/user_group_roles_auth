@@ -1,0 +1,20 @@
+{% extends 'Base.html' %} {% block title %}Login{% endblock %} {% block content %}
+
+<h2>Login</h2>
+
+
+<form method="POST" action="">
+    {% csrf_token %}
+
+    <input type="text" name="username" placeholder="Username" >
+
+    <input type="password" name="password" placeholder="Password" >
+
+
+    {% for message in messages %}
+    <p id="messages">{{message}}</p>
+    {% endfor %}
+
+    <input type="submit" name="Login">
+</form>
+{% endblock %}
